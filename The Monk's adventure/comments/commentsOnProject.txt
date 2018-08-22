@@ -1,0 +1,44 @@
+Via Creature class player bounds checken met tile ID 7, de cavedoor tile
+als die geraakt wordt dan gaat de boolean cavedoor op true en zal in de class gamestate de map worden geswitched via de tick method.
+Hierbij zal er een timer van 2sec worden toegepast om max opnieuw de cavedoor te gebruiken.
+
+Je komt terug op de vorige positie in het aangemaakte object world2,3,... je kan ze resetten nadat je van wereld switcht indien gewenst
+
+Via player tick() de coordinaten gevonden van de player en dan zo de player spawn plaats ingesteld voor SURFACE map
+CAVE MAP spawn plaats gewoon waar de speler eindigt, dus de cavedoor
+
+tempWorld object aanmaken om zo de entiteiten te kunnen deleten en trg op te roepen?
+
+
+
+//////////////////
+
+Met spatie en pijltoets tegelijk in val je aan in die richting
+-> je checkt met een ar box of die intersect met de cb van de entity ENNNN als het killable is, een variable die standard true is
+-> zoja dan roep je hurt method van die entity op waardoor die levens verliest
+-> indien die 0 is of kleiner roep je die method op terwijl je active op false zet
+
+----> je kan in die die method active terug true zetten indien je die niet dood wil, of je zet de active boolean in elke entity apart?? want terug true zetten zorgt voor negative health
+
+----> animations maken voor aanvallen 4 kanten en ///////de animatie voor stilstaan 3 andere kanten ook maken.\\\\\\\\\
+
+
+VOLGEND PROBLEEM na het maken van een itemManager kwam ik erachter dat deze voor elke wereld een andere is zoals entityManager, bij entities is dat normaal die neem je toch niet mee maar je items wil je meepaken ofcourse,
+is het dan nodig om een itemManager gelijk te stellen over de worlds of kan je gwn een inventory maken die globaal is waar je de items in doet?
+Als je de itemmanager gelijk zou stellen zou je wss de items van de wereld op de grond daar overdragen op de anderen en dat willen we niet
+
+BELANGRIJK!!!!!!!!!!!!!!!!!!
+NOG EEN PROBLEEM
+MONSTER PATFINDING SYSTEM???
+TERUGVECHTEN?
+beste om met xOffset te werken van camera class ipv timers, zo blijven ze altijd lopen tot waar ze moetne wanneer ze in conflict komen met iets anders
+==>> random route nemen is klaar, nu nog de bounds
+==>> bounds zoals aanval van player op entities namaken voor de movement
+
+
+Ik heb playerobject aangemaakt in gamestate waar ik die doorgeef aan alle worlds waardoor de player gelijk is voor elke world, maar de player zelf zijn coordinaten blijven dan ook gelijk in het assenstelsel
+waardoor je de coordinaten steeds met hardcoden?? try to fix :)
+
+
+
+LeveUpSystem gemaakt waarbij goblins 10xp geven, de xprate is 10+10*level^2 dus level 10 voor lvl 1 heb je 1010 xp nodig, voor level 20 4010, level 50 25000
